@@ -12,6 +12,8 @@ namespace Iniciando483
         {
             Console.WriteLine("Olá mundo");
 
+            Console.WriteLine("Atualizando meu git");
+
             Console.ReadKey(true);
         }
     }
