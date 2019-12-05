@@ -23,6 +23,7 @@ namespace RegistroCivilDeNomes
             while(menuEscolhido != "5")
             {
                 //aqui chamamos primeiro uma variavel para contem o menu escolhido
+                //para acessar o metodo podemos utilizar o f12
                 menuEscolhido = MostrarMenu();
                 //
                 switch (menuEscolhido)
@@ -32,6 +33,9 @@ namespace RegistroCivilDeNomes
                         break;
                     case "2":
                         ListarNome();
+                        break;
+                    case "3":
+                        EditarUmNome();
                         break;
                     default:
                         Console.WriteLine("Menu Inválido");
@@ -43,7 +47,28 @@ namespace RegistroCivilDeNomes
 
             Console.ReadKey(true);
         }
+        static void EditarUmNome()
+        {
+            Console.WriteLine("Edição de nomes do sistema de registro");
 
+            var numerador = 0;
+
+            ListaDeNomes.ForEach(x => Console.WriteLine("Nome:{0,-10}Número:{1,-10}",x,numerador++));
+
+            Console.WriteLine("Informe o número para edição");
+
+            var index = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Informe um novo nome para o registro");
+
+            var novoNome = Console.ReadLine();
+
+            ListaDeNomes[index] = novoNome;
+
+            Console.WriteLine("Registro alterado com sucesso!");
+
+            Console.ReadKey(true);
+        }
         static void MensagemInicial()
         {
             Console.WriteLine("***********************");
@@ -74,9 +99,9 @@ namespace RegistroCivilDeNomes
         static string MostrarMenu()
         {
             Console.WriteLine("Digite o número para a opção desejada:");
-            Console.WriteLine("1 - Registrar Nome");
-            Console.WriteLine("2 - Listar Nomes");
-            Console.WriteLine("3 - Editar Um Nome");
+            Console.WriteLine("1 - Registrar Nome"); //ok
+            Console.WriteLine("2 - Listar Nomes");   //ok 
+            Console.WriteLine("3 - Editar Um Nome"); //
             Console.WriteLine("4 - Excluir Nomes");
             Console.WriteLine("5 - Sair do sistema");
 
